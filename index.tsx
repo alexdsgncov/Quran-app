@@ -1,16 +1,22 @@
 
+import { registerRootComponent } from 'expo';
 import React from 'react';
+import { Platform } from 'react-native';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+// В среде Expo нативной точкой входа является registerRootComponent
+if (Platform.OS === 'web') {
+  const rootElement = document.getElementById('root');
+  if (rootElement) {
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  }
+} else {
+  // Для Android/iOS
+  registerRootComponent(App);
 }
-
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
