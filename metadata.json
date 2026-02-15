@@ -1,0 +1,6 @@
+{
+  "name": "Quran Offline",
+  "description": "A fully offline Noble Quran reader for Android via Expo. Features high-quality translations, beautiful Arabic script, and image sharing capabilities.",
+  "requestFramePermissions": [],
+  "isOfflineReady": true
+}
